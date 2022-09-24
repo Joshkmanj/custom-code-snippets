@@ -1,7 +1,7 @@
 {
 
   "Common Dependency List": {
-		"scope": "",
+		"scope": "javascript,javascriptreact",
 		"prefix": "boiler_app_js",
 		"body": [
 "  import './App.css';",

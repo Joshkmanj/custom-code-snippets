@@ -1,0 +1,32 @@
+{
+
+  "Saga boilerplate": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "boiler_saga",
+    "body": [
+			"import { put, takeLatest } from 'redux-saga/effects';",
+			"import axios from 'axios';",
+			"   ",
+			"   ",
+			"${2:    // ----------------< POST FUNCTION >----------------\n   function* ${9:POSTFUNCTIONNAME}(action) {\n     try {\n       axios.post('/api/${10:ROUTERNAME}', action.payload); // * Goes to SERVER \"${10:ROUTERNAME}.router\"\n       yield put({ type: '${11:FETCH_DATA_SAGA_CALL}' \\}); // * Goes to SAGA \"${12:SAGANAME}.SAGA\"\n     \\} catch (error) {\n     \\}\n   \\}}",
+			"   ",
+			"${4:    // ----------------< GET FUNCTION >----------------\n   function* ${13:GETFUNCTIONNAME}(action) {\n     try {\n       const ${14:RETRIEVEDDATA} = yield axios.get(`/api/${15:ROUTERNAME}/`); // * Goes to SERVER \"${15:ROUTERNAME}.router\"\n       yield put({ type: '${16:UPDATE_REDUCER_CALL}', payload: ${14:RETRIEVEDDATA}.data \\}); // * Goes to REDUCER\n     \\} catch (error) {\n     \\}\n   \\}}",
+			"   ",
+			"${6:    // ----------------< UPDATE FUNCTION >----------------\n     function* ${17:UPDATEFUNCTIONNAME}(action) {\n       try{\n         yield axios.put(`/api/${18:ROUTERNAME}/${action.payload.id\\}`, action.payload); // * Goes to SERVER \"${18:ROUTERNAME}.router\"\n         yield put({type: '${19:FETCH_DATA_SAGA_CALL}', payload: action.payload.id\\}) // * Goes to REDUCER\n     \\} catch (error){\n     \\}\n     \\}}",
+			"   ",
+			"${8:     // ----------------< DELETE FUNCTION >----------------\n     function* ${20:DELETEFUNCTIONNAME}(action) {\n       try {\n         yield axios.delete(`/api/${21:ROUTERNAME}/${action.payload.id\\}`, ); // * Goes to SERVER \"${21:ROUTERNAME}.router\"\n         yield put({ type: '${22:FETCH_DATA_SAGA_CALL}', payload: action.payload.id \\}); // * Goes to SAGA \"${23:SAGANAME}.SAGA\"\n       \\} catch (error) {\n       \\}   \n     \\}\n   }",
+			"   ",
+			"   ",
+			"   function* ${9:NAMESaga}() {",
+			"     ${1:yield takeLatest('${24:SAGA_POST_FUNCTION_CALL}', ${9:POSTFUNCTIONNAME});}",
+			"     ${3:yield takeLatest('${25:SAGA_GET_FUNCTION_CALL}', ${13:GETFUNCTIONNAME});}",
+			"     ${5:yield takeLatest('${26:SAGA_UPDATE_FUNCTION_CALL}', ${17:UPDATEFUNCTIONNAME});}",
+			"     ${7:yield takeLatest('${27:SAGA_DELETE_FUNCTION_CALL}', ${20:DELETEFUNCTIONNAME});}",
+			"   }",
+			"   ",
+			"   export default ${9:NAMESaga};",
+],
+"description": "Creates a new basic saga with routes for posting, getting, updating, and deleting"
+}
+
+}

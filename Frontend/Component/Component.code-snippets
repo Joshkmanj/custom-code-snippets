@@ -1,0 +1,23 @@
+{
+
+	"Component boilerplate": {
+		"scope": "javascript,javascriptreact",
+		"prefix": "boiler_component",
+		"body": [
+"// import { useEffect, useState } from 'react';",
+"// import { useDispatch, useSelector } from 'react-redux';",
+"",
+"function ${1:Name}(){",
+"",
+"    return(",
+"        <>",
+"",
+"        </>",
+"    )",
+"}",
+"export default ${1:Name};"
+		],
+		"description": "Create new component outline"
+	}
+
+}

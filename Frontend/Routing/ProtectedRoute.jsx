@@ -17,8 +17,8 @@ function ProtectedRoute({ component, children, ...props }) {
       // are now passed along to the 'Route' Component
       {...props}
     >
-      {user.id ?
-        // If the user is logged in, show the protected component
+      {(user.id && user.access_level >= 2) ?
+        // If the user is logged in, and the access level is >= 2, show the protected component
         <ProtectedComponent />
         :
         // Otherwise, redirect to the Loginpage
